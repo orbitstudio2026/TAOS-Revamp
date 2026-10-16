@@ -1,3 +1,4 @@
+import { asset } from "@/lib/utils";
 import { faq } from "@/content/offerings";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { Accordion, CtaSection } from "@/components/sections/Shared";
@@ -23,7 +24,7 @@ export default function Faq() {
             <div className="sticky top-32">
               <Parallax speed={40}>
                 <Reveal kind="mask" duration={1.6}>
-                  <ParallaxImage src="/assets/about-story.jpg" alt="" className="arch aspect-[3/4] w-full" amount={10} />
+                  <ParallaxImage src={asset("assets/about-story.jpg")} alt="" className="arch aspect-[3/4] w-full" amount={10} />
                 </Reveal>
               </Parallax>
             </div>

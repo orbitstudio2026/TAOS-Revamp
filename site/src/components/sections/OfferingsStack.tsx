@@ -5,7 +5,7 @@ import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } f
 import { offeringsSection } from "@/content/offerings";
 import { Cta } from "@/components/ui/Cta";
 import { Star } from "@/components/ui/Ornaments";
-import { cn } from "@/lib/utils";
+import { cn, asset } from "@/lib/utils";
 
 const Ctx = createContext<{ progress: MotionValue<number>; total: number } | null>(null);
 
@@ -54,7 +54,7 @@ export function OfferingsStack() {
           <StackingCardItem key={o.title} index={i}>
             <article className={cn("relative mx-auto grid min-h-[68vh] max-w-[1300px] overflow-hidden rounded-[2px] p-8 md:grid-cols-12 md:gap-10 md:p-14 lg:p-20", t.card)}>
               <img
-                src="/assets/lotus-mandala.webp"
+                src={asset("assets/lotus-mandala.webp")}
                 alt=""
                 aria-hidden
                 className="pointer-events-none absolute -right-[18%] -bottom-[30%] w-[70%] max-w-[640px] animate-spin-slow opacity-[0.08] mix-blend-luminosity"

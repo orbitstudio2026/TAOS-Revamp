@@ -13,7 +13,7 @@ import { Marquee } from "@/components/motion/Marquee";
 import { Accordion, Atmosphere } from "@/components/sections/Shared";
 import { useLenis } from "@/components/motion/SmoothScroll";
 import { usePageMeta } from "@/lib/meta";
-import { cn, EASE } from "@/lib/utils";
+import { cn, EASE, asset } from "@/lib/utils";
 
 const CAL_URL = `${brand.calendly}?hide_gdpr_banner=1&background_color=fbfaf7&text_color=3c3634&primary_color=7a4a71`;
 
@@ -161,7 +161,7 @@ function BookingHero() {
             animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
             transition={{ duration: 1.8, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
           >
-            <ParallaxImage src="/assets/vishakha-portrait.jpg" alt="Vishakha Chauhan" className="arch mx-auto aspect-[3/4] w-full max-w-[440px]" imgClassName="object-[50%_30%]" amount={8} />
+            <ParallaxImage src={asset("assets/vishakha-portrait.jpg")} alt="Vishakha Chauhan" className="arch mx-auto aspect-[3/4] w-full max-w-[440px]" imgClassName="object-[50%_30%]" amount={8} />
           </motion.div>
         </div>
       </div>

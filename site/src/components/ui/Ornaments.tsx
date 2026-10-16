@@ -1,5 +1,5 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { cn } from "@/lib/utils";
+import { cn, asset } from "@/lib/utils";
 
 /** The brand's ✦ motif, drawn as a four-point star so it renders crisply at any size. */
 export function Star({ className, filled = true }: { className?: string; filled?: boolean }) {
@@ -45,7 +45,7 @@ export function Sigil({ className, opacity = 0.18, spin = 60 }: { className?: st
   const rotate = useTransform(scrollYProgress, [0, 1], [0, spin * 6]);
   return (
     <motion.div aria-hidden className={cn("pointer-events-none select-none", className)} style={reduce ? { opacity } : { rotate, opacity }}>
-      <img src="/assets/lotus-mandala.webp" alt="" className="h-full w-full animate-spin-slow object-contain" draggable={false} />
+      <img src={asset("assets/lotus-mandala.webp")} alt="" className="h-full w-full animate-spin-slow object-contain" draggable={false} />
     </motion.div>
   );
 }

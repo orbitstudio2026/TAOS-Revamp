@@ -12,3 +12,6 @@ export function cn(...inputs: ClassValue[]) {
 
 export const EASE = [0.16, 1, 0.3, 1] as const;
 export const EASE_VEIL = [0.76, 0, 0.24, 1] as const;
+
+/** Resolve a file in /public against the deploy base (e.g. GitHub Pages serves under /TAOS-Revamp/). */
+export const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;

@@ -5,7 +5,7 @@ import { Cta } from "@/components/ui/Cta";
 import { Eyebrow, Orb, Sigil, Star } from "@/components/ui/Ornaments";
 import { SplitHeading } from "@/components/motion/SplitHeading";
 import { Marquee } from "@/components/motion/Marquee";
-import { EASE } from "@/lib/utils";
+import { EASE, asset } from "@/lib/utils";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -98,7 +98,7 @@ export function Hero() {
           >
             <motion.div style={reduce ? undefined : { y: archScrollY }} className="arch absolute inset-0 overflow-hidden bg-mist">
               <motion.img
-                src="/assets/vishakha-awakening.jpg"
+                src={asset("assets/vishakha-awakening.jpg")}
                 alt="Vishakha in meditation by the water"
                 className="h-full w-full object-cover object-[32%_50%]"
                 style={reduce ? undefined : { scale: imgScale }}

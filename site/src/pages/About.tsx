@@ -9,13 +9,13 @@ import { Reveal, StaggerList, StaggerLi } from "@/components/motion/Reveal";
 import { ScrollWords } from "@/components/motion/ScrollWords";
 import { Atmosphere, CtaSection } from "@/components/sections/Shared";
 import { gsap, useGSAP } from "@/lib/gsap";
-import { cn, EASE } from "@/lib/utils";
+import { cn, EASE, asset } from "@/lib/utils";
 import { usePageMeta } from "@/lib/meta";
 
 const chapterTheme = [
   { bg: "#241a23", fg: "#f7f5f2", cap: "#d5a5a5", image: null },
-  { bg: "#f1e2e0", fg: "#3c3634", cap: "#7a4a71", image: "/assets/about-story.jpg" },
-  { bg: "#f7f5f2", fg: "#3c3634", cap: "#a36c9b", image: "/assets/vishakha-awakening.jpg" },
+  { bg: "#f1e2e0", fg: "#3c3634", cap: "#7a4a71", image: asset("assets/about-story.jpg") },
+  { bg: "#f7f5f2", fg: "#3c3634", cap: "#a36c9b", image: asset("assets/vishakha-awakening.jpg") },
 ];
 
 export default function About() {
@@ -66,7 +66,7 @@ function AboutHero() {
             animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
             transition={{ duration: 1.8, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
           >
-            <ParallaxImage src="/assets/vishakha-portrait.jpg" alt="Portrait of Vishakha Chauhan" className="arch aspect-[3/4] w-full" imgClassName="object-[50%_30%]" amount={8} />
+            <ParallaxImage src={asset("assets/vishakha-portrait.jpg")} alt="Portrait of Vishakha Chauhan" className="arch aspect-[3/4] w-full" imgClassName="object-[50%_30%]" amount={8} />
             <figcaption className="eyebrow mt-6 text-taupe">{aboutHero.caption}</figcaption>
           </motion.figure>
         </div>
@@ -279,7 +279,7 @@ function Credentials() {
         <div className="lg:col-span-5 lg:col-start-8">
           <div className="lg:sticky lg:top-32">
             <Reveal kind="mask" duration={1.6}>
-              <ParallaxImage src="/assets/about-story.jpg" alt="Clear quartz crystal held in an open palm" className="aspect-[4/5] w-full" amount={10} />
+              <ParallaxImage src={asset("assets/about-story.jpg")} alt="Clear quartz crystal held in an open palm" className="aspect-[4/5] w-full" amount={10} />
             </Reveal>
             <Reveal kind="blur" delay={0.2}>
               <p className="mt-10 font-display text-2xl leading-snug text-taupe italic">{credentials.passion}</p>

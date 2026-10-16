@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useScroll, useSpring } from "motion/react";
 import { brand } from "@/content/site";
 import { LogoMark } from "@/components/ui/Ornaments";
-import { cn, EASE, EASE_VEIL } from "@/lib/utils";
+import { cn, EASE, EASE_VEIL, asset } from "@/lib/utils";
 
 /** Thin gold thread across the top that tracks reading progress. */
 export function ScrollProgress() {
@@ -163,7 +163,7 @@ export function MusicToggle() {
 
   return (
     <>
-      <audio ref={audio} src="/music/background.mp3" loop preload="none" />
+      <audio ref={audio} src={asset("music/background.mp3")} loop preload="none" />
       <button
         type="button"
         onClick={toggle}

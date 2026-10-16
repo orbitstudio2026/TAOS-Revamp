@@ -1,3 +1,4 @@
+import { asset } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
 
@@ -81,7 +82,7 @@ export function LotusJourney() {
         style={reduce ? undefined : { opacity: glow }}
       />
       <motion.img
-        src="/assets/lotus-mandala.webp"
+        src={asset("assets/lotus-mandala.webp")}
         alt=""
         draggable={false}
         className="relative h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(122,74,113,0.35)]"

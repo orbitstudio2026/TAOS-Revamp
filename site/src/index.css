@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+/* ── Brand tokens: The Alchemy of Sovereignty ───────────────────────── */
+@theme {
+  --color-ivory: #f7f5f2;
+  --color-paper: #fbfaf7;
+  --color-mist: #e9e5e2;
+  --color-linen: #efe9e3;
+  --color-sand: #c6b49a;
+  --color-gold: #b59b74;
+  --color-rose: #d5a5a5;
+  --color-blush: #f1e2e0;
+  --color-plum: #a36c9b;
+  --color-plum-deep: #7a4a71;
+  --color-taupe: #6c5f5a;
+  --color-ink: #3c3634;
+  --color-dusk: #241a23;
+  --color-dusk-2: #33232f;
+  --color-dusk-3: #4a3346;
+
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --ease-alchemy: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-veil: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-marquee-reverse: marquee-reverse var(--marquee-duration, 40s) linear infinite;
+  --animate-spin-slow: spin 90s linear infinite;
+  --animate-breathe: breathe 6s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translate3d(-50%, 0, 0); }
+    to { transform: translate3d(0, 0, 0); }
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.55; }
+    50% { transform: scale(1.08); opacity: 0.9; }
+  }
+}
+
+/* ── Base ───────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background: var(--color-ivory);
+  }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: clip; }
+
+  body {
+    background: transparent; /* html carries the ivory so the fixed cosmos layer shows through */
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    overflow-x: clip;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+
+  ::selection { background: var(--color-plum); color: var(--color-ivory); }
+
+  :focus-visible {
+    outline: 1.5px solid var(--color-plum-deep);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  /* Themed scrollbar */
+  html { scrollbar-color: var(--color-sand) var(--color-ivory); scrollbar-width: thin; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-ivory); }
+  ::-webkit-scrollbar-thumb { background: var(--color-sand); border-radius: 10px; border: 3px solid var(--color-ivory); }
+
+  input, textarea { caret-color: var(--color-plum); }
+  a { text-underline-offset: 0.25em; }
+}
+
+/* ── Utilities ──────────────────────────────────────────────────────── */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+@utility text-display-xl {
+  font-size: clamp(2.9rem, 9.5vw, 9rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
+@utility text-display-lg {
+  font-size: clamp(2.3rem, 6.2vw, 5.75rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
+@utility text-display-md {
+  font-size: clamp(1.9rem, 4.2vw, 3.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  overflow-wrap: break-word;
+}
+
+@utility hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-sand), transparent);
+}
+
+@utility arch {
+  border-radius: 999px 999px 0 0;
+}
+
+@utility logo-mask {
+  background-color: currentColor;
+  -webkit-mask: url("/assets/logomark-512.png") center / contain no-repeat;
+  mask: url("/assets/logomark-512.png") center / contain no-repeat;
+}
+
+@utility drop-cap {
+  &::first-letter {
+    font-family: var(--font-display);
+    float: left;
+    font-size: 5.2em;
+    line-height: 0.78;
+    padding: 0.08em 0.12em 0 0;
+    color: var(--color-plum);
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+/* SplitText line masks (class applied by GSAP SplitText) */
+@utility split-line {
+  /* Room for italic overhangs, ascenders and descenders so no glyph is cut by the mask */
+  overflow: clip;
+  overflow-clip-margin: 0.12em;
+  padding: 0.1em 0.16em 0.18em 0.04em;
+  margin: -0.1em -0.16em -0.18em -0.04em;
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

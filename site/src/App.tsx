@@ -8,7 +8,6 @@ import { Cursor, Grain, MusicToggle, PageVeil, Preloader, ScrollProgress } from 
 import { SmoothScroll, useLenis } from "@/components/motion/SmoothScroll";
 import { ScrollTrigger } from "@/lib/gsap";
 import { Cosmos } from "@/components/ui/Cosmos";
-import { LotusJourney } from "@/components/ui/LotusJourney";
 import { EASE } from "@/lib/utils";
 import Home from "@/pages/Home";
 
@@ -68,7 +67,6 @@ function Shell() {
         </Routes>
       </AnimatePresence>
       <Footer />
-      <LotusJourney />
       <Newsletter />
       <MusicToggle />
       <Cursor />

@@ -7,6 +7,7 @@ import { LogoMark } from "@/components/ui/Ornaments";
 import { EASE } from "@/lib/utils";
 
 const KEY = "welcomePopupDismissed";
+const SUBSCRIBED = "welcomeSubscribed";
 const ENDPOINT = import.meta.env.VITE_NEWSLETTER_ENDPOINT as string | undefined;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -25,16 +26,27 @@ function write(key: string, value: string) {
   }
 }
 
-/** "Stay Connected" invitation — a quiet slide-in card rather than a blocking modal. */
+/**
+ * "Stay Connected" invitation — a quiet slide-in card rather than a blocking modal.
+ * Closing it collapses it into a small badge in the corner that reopens the form.
+ */
 export function Newsletter() {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
+  const [subscribed, setSubscribed] = useState(() => read(SUBSCRIBED) === "1");
+  const [ready, setReady] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
 
+  // Let the page settle (preloader, hero) before the badge appears.
   useEffect(() => {
-    if (read(KEY) === "1" || pathname === "/booking") return;
+    const t = setTimeout(() => setReady(true), 3500);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    if (read(KEY) === "1" || read(SUBSCRIBED) === "1" || pathname === "/booking") return;
     // Invite only engaged readers: after 40% of the page, or 25s of reading.
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -69,14 +81,43 @@ export function Newsletter() {
       write("welcomeLeads", JSON.stringify([...prev, lead]));
     } finally {
       setState("done");
-      setTimeout(dismiss, 2600);
+      write(SUBSCRIBED, "1");
+      setTimeout(() => {
+        setOpen(false);
+        setSubscribed(true);
+      }, 2600);
     }
   };
 
+  const showBadge = ready && !open && !subscribed;
+
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
+      {showBadge && (
+        <motion.button
+          key="badge"
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-label={welcome.submit}
+          aria-expanded={false}
+          initial={{ opacity: 0, y: 20, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 12, scale: 0.9 }}
+          transition={{ duration: 0.6, ease: EASE }}
+          whileHover={{ y: -3 }}
+          whileTap={{ scale: 0.96 }}
+          className="group fixed bottom-5 left-5 z-[70] flex cursor-pointer items-center gap-3 rounded-full border border-plum/20 bg-paper/90 py-2 pr-5 pl-2 shadow-[0_14px_40px_-16px_rgba(36,26,35,0.45)] backdrop-blur-md md:bottom-8 md:left-8"
+        >
+          <span className="relative grid size-9 place-items-center rounded-full bg-plum text-ivory transition-colors duration-500 group-hover:bg-plum-deep">
+            <LogoMark className="size-5" />
+            <span aria-hidden className="absolute inset-0 animate-ping rounded-full ring-1 ring-plum/40 [animation-duration:2.8s]" />
+          </span>
+          <span className="eyebrow text-plum-deep">{welcome.submit}</span>
+        </motion.button>
+      )}
       {open && (
         <motion.aside
+          key="form"
           role="dialog"
           aria-labelledby="welcome-title"
           initial={{ opacity: 0, y: 40, clipPath: "inset(100% 0% 0% 0%)" }}
@@ -85,7 +126,7 @@ export function Newsletter() {
           transition={{ duration: 1, ease: EASE }}
           className="fixed bottom-4 left-4 z-[70] w-[calc(100vw-2rem)] max-w-[400px] overflow-hidden border border-ink/10 bg-paper p-5 md:p-7 shadow-[0_30px_80px_-30px_rgba(36,26,35,0.45)] md:bottom-8 md:left-8"
         >
-          <button type="button" onClick={dismiss} aria-label="Close" className="absolute top-3 right-3 grid size-9 cursor-pointer place-items-center rounded-full text-taupe transition-colors hover:bg-mist hover:text-ink">
+          <button type="button" onClick={dismiss} aria-label="Minimise" className="absolute top-3 right-3 grid size-9 cursor-pointer place-items-center rounded-full text-taupe transition-colors hover:bg-mist hover:text-ink">
             <X className="size-4" strokeWidth={1.5} />
           </button>
           <LogoMark className="mb-3 size-8 text-plum md:mb-4 md:size-9" />

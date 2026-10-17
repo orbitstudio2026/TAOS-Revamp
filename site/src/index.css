@@ -162,6 +162,13 @@
   margin: -0.1em -0.16em -0.18em -0.04em;
 }
 
+/* The mask wrapper SplitText creates (it carries the overflow clip): give glyph overhangs room */
+@utility split-line-mask {
+  overflow-clip-margin: 0.25em;
+  padding: 0 0.2em 0 0.06em;
+  margin: 0 -0.2em 0 -0.06em;
+}
+
 @keyframes grain {
   0% { transform: translate(0, 0); }
   20% { transform: translate(-3%, 2%); }

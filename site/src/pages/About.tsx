@@ -209,7 +209,7 @@ function Mission() {
       <div aria-hidden className="mx-auto mt-12 flex max-w-5xl flex-col items-center gap-2">
         {phrases.map((ph, i) => (
           <div key={ph} className="flex flex-col items-center">
-            <SplitHeading as="span" by="words" className={cn("block text-display-lg", i % 2 ? "text-plum italic" : "text-ink")}>
+            <SplitHeading as="span" by="words" className={cn("block font-display text-display-lg font-light", i % 2 ? "text-plum italic" : "text-ink")}>
               {ph}
             </SplitHeading>
             {i < phrases.length - 1 && (

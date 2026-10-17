@@ -28,7 +28,7 @@ export function SplitHeading({ as: Tag = "h2", children, className, by = "words"
           if (!el.isConnected) return;
           split = SplitText.create(el, {
             type: by === "lines" ? "lines" : `lines,${by}`,
-            linesClass: "split-line",
+            linesClass: "split-line", // SplitText also wraps each line in "split-line-mask" (styled in index.css)
             mask: "lines",
             autoSplit: true,
             onSplit(self) {
@@ -41,6 +41,8 @@ export function SplitHeading({ as: Tag = "h2", children, className, by = "words"
                 ease: "expo.out",
                 stagger: stagger ?? (by === "chars" ? 0.028 : by === "words" ? 0.06 : 0.12),
                 delay,
+                // Drop the leftover transforms once settled so italic overhangs are not cropped.
+                clearProps: "transform,rotate,opacity",
                 scrollTrigger: immediate ? undefined : { trigger: el, start: "top 88%", once: true },
               });
             },

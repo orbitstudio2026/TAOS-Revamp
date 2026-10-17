@@ -10,7 +10,6 @@ export function Footer() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end end"] });
   const y = useTransform(scrollYProgress, [0, 1], ["45%", "0%"]);
   const opacity = useTransform(scrollYProgress, [0.2, 1], [0, 1]);
-  const logoRotate = useTransform(scrollYProgress, [0, 1], [-90, 0]);
 
   return (
     <footer ref={ref} className="relative isolate overflow-hidden bg-dusk text-ivory">
@@ -18,9 +17,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-[1400px] gap-14 px-6 pt-16 pb-10 md:grid-cols-12 md:px-10 md:pt-20">
         <div className="md:col-span-5">
           <Link to="/" className="inline-flex items-center gap-4 text-rose" aria-label={brand.name}>
-            <motion.span style={{ rotate: logoRotate }} className="inline-block">
-              <LogoMark className="size-16" />
-            </motion.span>
+            <LogoMark className="size-16" />
             <span className="font-display text-2xl leading-tight text-ivory">
               {brand.name}
               <span className="block text-base italic text-ivory/75">{brand.tagline}</span>

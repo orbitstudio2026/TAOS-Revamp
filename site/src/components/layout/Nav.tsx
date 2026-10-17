@@ -47,8 +47,8 @@ export function Nav() {
             scrolled && !open ? "border-b border-ink/5 bg-ivory/75 py-3 backdrop-blur-xl" : "border-b border-transparent py-5 md:py-7",
           )}
         >
-          <Link to="/" className={cn("group relative z-[70] flex items-center gap-3", open ? "text-ivory" : "text-plum-deep")} aria-label={brand.name}>
-            <LogoMark className="size-9 transition-transform duration-[1.2s] ease-[var(--ease-alchemy)] group-hover:rotate-[60deg] md:size-10" />
+          <Link to="/" className={cn("relative z-[70] flex items-center gap-3", open ? "text-ivory" : "text-plum-deep")} aria-label={brand.name}>
+            <LogoMark className="size-9 md:size-10" />
             <span className={cn("font-display text-[1.05rem] leading-[1.05] tracking-tight md:text-[1.2rem]", open ? "text-ivory" : "text-ink")}>
               The Alchemy
               <br />

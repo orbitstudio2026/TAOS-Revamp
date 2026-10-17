@@ -40,7 +40,7 @@ export function Cta({ children, to, href, tone = "solid", size = "md", className
   };
 
   const cls = cn(
-    "group relative inline-flex items-center gap-3 overflow-hidden rounded-full font-sans font-medium uppercase tracking-[0.22em] transition-[color,background-color,scale] duration-500 cursor-pointer select-none active:scale-[0.97]",
+    "group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full font-sans font-medium uppercase tracking-[0.22em] transition-[color,background-color,scale] duration-500 cursor-pointer select-none active:scale-[0.97]",
     "disabled:pointer-events-none disabled:opacity-50",
     size === "lg" ? "px-8 py-4.5 text-[max(0.72rem,11.5px)] md:px-9 md:py-5" : "px-7 py-4 text-[max(0.66rem,11px)]",
     t.base,
@@ -57,9 +57,9 @@ export function Cta({ children, to, href, tone = "solid", size = "md", className
           t.fill,
         )}
       />
-      <span className={cn("relative z-10 transition-colors duration-500", t.hoverText)}>{children}</span>
+      <span className={cn("relative z-10 text-center transition-colors duration-500", t.hoverText)}>{children}</span>
       {icon && (
-        <span className={cn("relative z-10 grid size-5 place-items-center overflow-hidden transition-colors duration-500", t.hoverText)}>
+        <span className={cn("relative z-10 hidden size-5 place-items-center overflow-hidden transition-colors duration-500 md:grid", t.hoverText)}>
           <ArrowUpRight className="size-4 transition-transform duration-500 ease-[var(--ease-alchemy)] group-hover:translate-x-5 group-hover:-translate-y-5" strokeWidth={1.5} />
           <ArrowUpRight className="absolute size-4 -translate-x-5 translate-y-5 transition-transform duration-500 ease-[var(--ease-alchemy)] group-hover:translate-x-0 group-hover:translate-y-0" strokeWidth={1.5} />
         </span>

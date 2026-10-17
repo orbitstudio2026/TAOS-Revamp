@@ -35,7 +35,7 @@ export default function Booking() {
       <Receive />
       <Reverence />
 
-      <section id="calendly" className="relative isolate scroll-mt-24 overflow-hidden bg-paper/70 px-4 py-28 md:px-10 md:py-40">
+      <section id="calendly" className="relative isolate scroll-mt-24 overflow-hidden bg-paper/70 px-4 py-14 md:px-10 md:py-24">
         <Parallax speed={-120} className="absolute -top-20 -right-40 -z-10">
           <Sigil className="size-[36rem]" opacity={0.12} />
         </Parallax>
@@ -78,7 +78,7 @@ export default function Booking() {
       <ForYou />
       <Reflections />
 
-      <section className="px-6 py-28 md:px-10 md:py-40">
+      <section className="px-6 py-14 md:px-10 md:py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14 flex flex-col items-center text-center">
             <Reveal kind="fade">
@@ -109,7 +109,7 @@ function BookingHero() {
   const metaIcons = [Clock, Globe, Lock];
 
   return (
-    <section className="relative isolate overflow-clip px-6 pt-40 pb-24 md:px-10 md:pt-48 md:pb-32">
+    <section className="relative isolate overflow-clip px-6 pt-32 pb-12 md:px-10 md:pt-36 md:pb-20">
       <Atmosphere />
       <div className="mx-auto grid max-w-[1400px] items-center gap-16 lg:grid-cols-12">
         <div className="lg:col-span-7">
@@ -171,7 +171,7 @@ function BookingHero() {
 
 function Receive() {
   return (
-    <section id="receive" className="scroll-mt-24 px-6 py-28 md:px-10 md:py-40">
+    <section id="receive" className="scroll-mt-24 px-6 py-14 md:px-10 md:py-24">
       <div className="mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
@@ -199,7 +199,7 @@ function Receive() {
 function Reverence() {
   const icons = [CalendarCheck, Globe, Lock, Sparkles];
   return (
-    <section className="relative isolate overflow-clip bg-dusk px-6 py-28 text-ivory md:px-10 md:py-40">
+    <section className="relative isolate overflow-clip bg-dusk px-6 py-14 text-ivory md:px-10 md:py-24">
       <Cosmos tone="dark" className="-z-10" />
       <Parallax speed={-140} className="absolute -bottom-40 -left-40 -z-10">
         <Sigil className="size-[40rem]" opacity={0.08} />
@@ -213,7 +213,7 @@ function Reverence() {
             A call held with <em className="text-rose">reverence</em>
           </SplitHeading>
         </div>
-        <StaggerList className="mt-20 grid border-t border-ivory/12 md:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
+        <StaggerList className="mt-12 grid border-t border-ivory/12 md:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
           {reverence.items.map((r, i) => {
             const Icon = icons[i];
             return (
@@ -234,7 +234,7 @@ function Reverence() {
 
 function ForYou() {
   return (
-    <section className="relative isolate overflow-clip bg-linen/75 px-6 py-28 md:px-10 md:py-40">
+    <section className="relative isolate overflow-clip bg-linen/75 px-6 py-14 md:px-10 md:py-24">
       <div className="mx-auto grid max-w-[1400px] items-start gap-16 lg:grid-cols-2">
         <div className="lg:sticky lg:top-32">
           <Reveal kind="fade">
@@ -264,7 +264,7 @@ function ForYou() {
 
 function Reflections() {
   return (
-    <section className="overflow-hidden py-28 md:py-40">
+    <section className="overflow-hidden py-14 md:py-24">
       <div className="mx-auto flex max-w-4xl flex-col items-center px-6 text-center">
         <Reveal kind="fade">
           <Eyebrow>{reflections.eyebrow}</Eyebrow>
@@ -297,7 +297,7 @@ function Reflections() {
 
 function Whisper() {
   return (
-    <section className="relative isolate overflow-clip bg-dusk px-6 py-32 text-center text-ivory md:py-48">
+    <section className="relative isolate overflow-clip bg-dusk px-6 py-16 text-center text-ivory md:py-28">
       <Cosmos tone="dark" className="-z-10" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(163,108,155,0.45),transparent_65%)]" />
       <Parallax speed={140} className="absolute top-1/2 left-1/2 -z-10 -translate-x-1/2 -translate-y-1/2">

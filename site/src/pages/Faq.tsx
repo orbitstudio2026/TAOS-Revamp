@@ -18,7 +18,7 @@ export default function Faq() {
           </>
         }
       />
-      <section className="px-6 pb-32 md:px-10 md:pb-44">
+      <section className="px-6 pb-16 md:px-10 md:pb-24">
         <div className="mx-auto grid max-w-[1400px] gap-16 lg:grid-cols-12">
           <div className="hidden lg:col-span-4 lg:block">
             <div className="sticky top-32">

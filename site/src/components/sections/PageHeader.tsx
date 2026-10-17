@@ -15,7 +15,7 @@ export function PageHeader({ eyebrow, title, children }: { eyebrow?: string; tit
   const sigilRotate = useTransform(scrollYProgress, [0, 1], [0, 90]);
 
   return (
-    <section ref={ref} className="relative isolate overflow-clip px-6 pt-40 pb-20 md:px-10 md:pt-52 md:pb-28">
+    <section ref={ref} className="relative isolate overflow-clip px-6 pt-32 pb-8 md:px-10 md:pt-40 md:pb-12">
       <Atmosphere />
       <motion.div style={{ y: sigilY, rotate: sigilRotate }} className="absolute -top-24 -right-40 -z-10 md:-right-20">
         <Sigil className="size-[30rem] md:size-[42rem]" opacity={0.2} />

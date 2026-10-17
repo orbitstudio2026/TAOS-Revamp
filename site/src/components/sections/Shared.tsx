@@ -38,7 +38,7 @@ export function CtaSection({
   );
 
   return (
-    <section id={id} className="relative isolate overflow-clip bg-dusk py-32 text-ivory md:py-48">
+    <section id={id} className="relative isolate overflow-clip bg-dusk py-16 text-ivory md:py-28">
       <Cosmos tone="dark" className="-z-10" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_120%,rgba(163,108,155,0.55),transparent_60%),radial-gradient(ellipse_at_10%_0%,rgba(213,165,165,0.18),transparent_50%)]" />
       <Parallax speed={140} className="absolute top-1/2 left-1/2 -z-10 -translate-x-1/2 -translate-y-1/2">

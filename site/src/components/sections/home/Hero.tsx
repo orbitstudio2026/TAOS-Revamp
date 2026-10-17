@@ -115,7 +115,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 1.6 }}
-        className="relative mt-16 border-y border-ink/10 bg-ivory/60 py-5 backdrop-blur-sm md:mt-20"
+        className="relative mt-10 border-y border-ink/10 bg-ivory/60 py-5 backdrop-blur-sm md:mt-12"
       >
         <Marquee duration={36}>
           {[...hero.credentials, ...hero.credentials].map((c, i) => (

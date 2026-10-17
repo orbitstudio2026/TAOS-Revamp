@@ -15,7 +15,7 @@ export function Footer() {
   return (
     <footer ref={ref} className="relative isolate overflow-hidden bg-dusk text-ivory">
       <Cosmos tone="dark" className="-z-10" />
-      <div className="mx-auto grid max-w-[1400px] gap-14 px-6 pt-24 pb-10 md:grid-cols-12 md:px-10 md:pt-32">
+      <div className="mx-auto grid max-w-[1400px] gap-14 px-6 pt-16 pb-10 md:grid-cols-12 md:px-10 md:pt-20">
         <div className="md:col-span-5">
           <Link to="/" className="inline-flex items-center gap-4 text-rose" aria-label={brand.name}>
             <motion.span style={{ rotate: logoRotate }} className="inline-block">

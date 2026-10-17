@@ -29,7 +29,7 @@ function StackingCardItem({ index, children }: { index: number; children: ReactN
   const brightness = useTransform(ctx.progress, [index / ctx.total, 1], [1, 0.82 + index * 0.04]);
   const filter = useTransform(brightness, (b) => `brightness(${b})`);
   return (
-    <div className="sticky top-0 flex min-h-[100svh] items-start pt-[12vh]" style={{ paddingTop: `calc(11vh + ${index * 22}px)` }}>
+    <div className="sticky top-0 flex min-h-[82svh] items-start" style={{ paddingTop: `calc(9vh + ${index * 20}px)` }}>
       <motion.div className="w-full origin-top" style={reduce ? undefined : { scale, filter }}>
         {children}
       </motion.div>
@@ -52,7 +52,7 @@ export function OfferingsStack() {
         const t = tones[i % tones.length];
         return (
           <StackingCardItem key={o.title} index={i}>
-            <article className={cn("relative mx-auto grid min-h-[68vh] max-w-[1300px] overflow-hidden rounded-[2px] p-8 md:grid-cols-12 md:gap-10 md:p-14 lg:p-20", t.card)}>
+            <article className={cn("relative mx-auto grid min-h-[58vh] max-w-[1300px] overflow-hidden rounded-[2px] p-8 md:grid-cols-12 md:gap-10 md:p-14 lg:p-20", t.card)}>
               <img
                 src={asset("assets/lotus-mandala.webp")}
                 alt=""

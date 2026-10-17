@@ -39,7 +39,7 @@ function AboutHero() {
   const textY = useTransform(scrollYProgress, [0, 1], [0, -140]);
 
   return (
-    <section ref={ref} className="relative isolate overflow-clip px-6 pt-36 pb-24 md:px-10 md:pt-44 md:pb-36">
+    <section ref={ref} className="relative isolate overflow-clip px-6 pt-32 pb-12 md:px-10 md:pt-36 md:pb-20">
       <Atmosphere />
       <div className="mx-auto grid max-w-[1400px] items-end gap-16 lg:grid-cols-12">
         <motion.div style={{ y: textY }} className="lg:col-span-7">
@@ -77,7 +77,7 @@ function AboutHero() {
 
 function Facts() {
   return (
-    <section className="px-6 py-24 md:px-10 md:py-36">
+    <section className="px-6 py-14 md:px-10 md:py-20">
       <div className="mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-32">
@@ -152,7 +152,7 @@ function Story() {
       {chapters.map((c, i) => {
         const theme = chapterTheme[i];
         return (
-          <section key={c.title} className="chapter relative px-6 py-28 md:px-10 md:py-44">
+          <section key={c.title} className="chapter relative px-6 py-14 md:px-10 md:py-24">
             <div className="mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-12">
               <div className="lg:col-span-4">
                 <div className="lg:sticky lg:top-32">
@@ -160,7 +160,7 @@ function Story() {
                     {c.title}
                   </SplitHeading>
                   {theme.image && (
-                    <Reveal kind="mask" duration={1.5} className="mt-12 hidden lg:block">
+                    <Reveal kind="mask" duration={1.5} className="mt-10 hidden lg:block">
                       <ParallaxImage src={theme.image} alt="" className="arch aspect-[4/5] w-full max-w-[360px]" amount={10} />
                     </Reveal>
                   )}
@@ -173,7 +173,7 @@ function Story() {
                   </Reveal>
                 ))}
                 {c.sub && (
-                  <div className="pt-16">
+                  <div className="pt-10">
                     <SplitHeading as="h3" className="text-display-md" by="words">
                       {c.sub.title}
                     </SplitHeading>
@@ -198,7 +198,7 @@ function Story() {
 function Mission() {
   const phrases = mission.line.split(" · ");
   return (
-    <section className="relative isolate overflow-clip px-6 py-32 text-center md:px-10 md:py-48">
+    <section className="relative isolate overflow-clip px-6 py-16 text-center md:px-10 md:py-28">
       <Parallax speed={120} className="absolute top-1/2 left-1/2 -z-10 -translate-x-1/2 -translate-y-1/2">
         <Sigil className="size-[40rem]" opacity={0.12} />
       </Parallax>
@@ -226,7 +226,7 @@ function Mission() {
 
 function ValuesList() {
   return (
-    <section className="bg-paper/70 px-6 py-32 md:px-10 md:py-44">
+    <section className="bg-paper/70 px-6 py-16 md:px-10 md:py-24">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -247,7 +247,7 @@ function ValuesList() {
           </StaggerList>
         </div>
 
-        <figure className="mx-auto mt-32 max-w-4xl text-center">
+        <figure className="mx-auto mt-16 max-w-4xl text-center">
           <ScrollWords text={aboutValues.quote} className="justify-center font-display text-[2rem] leading-[1.3] text-ink italic md:text-[3rem]" />
           <Reveal kind="rise">
             <figcaption className="mt-10 font-display text-2xl text-plum-deep italic">{aboutValues.author}</figcaption>
@@ -260,7 +260,7 @@ function ValuesList() {
 
 function Credentials() {
   return (
-    <section className="relative isolate overflow-clip px-6 py-32 md:px-10 md:py-44">
+    <section className="relative isolate overflow-clip px-6 py-16 md:px-10 md:py-24">
       <Atmosphere />
       <div className="mx-auto grid max-w-[1400px] gap-16 lg:grid-cols-12">
         <div className="lg:col-span-6">

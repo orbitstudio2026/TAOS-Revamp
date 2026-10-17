@@ -24,7 +24,7 @@ export function FindPath() {
   const thread = useSpring(scrollYProgress, { stiffness: 80, damping: 24 });
 
   return (
-    <section className="relative px-6 py-32 md:px-10 md:py-44">
+    <section className="relative px-6 py-16 md:px-10 md:py-24">
       <div className="mx-auto grid max-w-[1400px] gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
@@ -50,7 +50,7 @@ export function FindPath() {
         </ol>
       </div>
 
-      <div className="mx-auto mt-28 flex max-w-3xl flex-col items-center text-center">
+      <div className="mx-auto mt-14 flex max-w-3xl flex-col items-center text-center">
         <SplitHeading as="p" className="font-display text-display-md text-plum-deep italic" by="words">
           {findPath.close}
         </SplitHeading>
@@ -74,7 +74,7 @@ function Question({ text }: { text: string }) {
   const starScale = useTransform(scrollYProgress, [0.25, 0.45, 0.6], [0.6, 1.35, 1]);
 
   return (
-    <li ref={ref} className="flex gap-6 border-t border-ink/10 py-10 md:gap-10 md:py-14">
+    <li ref={ref} className="flex gap-6 border-t border-ink/10 py-6 md:gap-10 md:py-8">
       <motion.span style={reduce ? undefined : { rotate, scale: starScale }} className="mt-2 text-plum">
         <Star className="size-4 md:size-5" />
       </motion.span>
@@ -92,7 +92,7 @@ export function Pillars() {
   const lineScale = useTransform(scrollYProgress, [0.15, 0.6], [0, 1]);
 
   return (
-    <section className="relative isolate overflow-clip bg-dusk px-6 py-32 text-ivory md:px-10 md:py-48">
+    <section className="relative isolate overflow-clip bg-dusk px-6 py-16 text-ivory md:px-10 md:py-28">
       <Cosmos tone="dark" className="-z-10" />
       <Parallax speed={-160} className="absolute top-0 left-1/2 -z-10 -translate-x-1/2">
         <Sigil className="size-[52rem]" opacity={0.07} spin={30} />
@@ -109,10 +109,10 @@ export function Pillars() {
           </SplitHeading>
         </div>
 
-        <div ref={ref} className="relative mt-24 grid gap-24 md:mt-32 md:grid-cols-2 md:gap-0">
+        <div ref={ref} className="relative mt-12 grid gap-16 md:mt-16 md:grid-cols-2 md:gap-0">
           <motion.div aria-hidden style={{ scaleY: lineScale }} className="absolute top-0 left-1/2 hidden h-full w-px origin-top bg-gradient-to-b from-rose/0 via-rose/50 to-rose/0 md:block" />
           {pillars.items.map((p, i) => (
-            <Parallax key={p.num} speed={i === 0 ? 70 : -70} className={cn("md:px-16 lg:px-24", i === 1 && "md:pt-40")}>
+            <Parallax key={p.num} speed={i === 0 ? 70 : -70} className={cn("md:px-16 lg:px-24", i === 1 && "md:pt-24")}>
               <article>
                 <span aria-hidden className="block font-display text-[9rem] leading-none text-transparent italic [-webkit-text-stroke:1px_rgba(213,165,165,0.55)] md:text-[13rem]">
                   {p.num}
@@ -178,7 +178,7 @@ export function HealGallery() {
   return (
     <section ref={section} className="relative overflow-hidden bg-linen/75 lg:h-[100svh]">
       <div ref={track} className="flex flex-col lg:h-full lg:w-max lg:flex-row lg:items-stretch">
-        <div className="flex shrink-0 flex-col justify-center px-6 pt-32 pb-12 md:px-10 lg:w-[42vw] lg:py-0 lg:pl-[max(2.5rem,calc((100vw-1400px)/2+2.5rem))]">
+        <div className="flex shrink-0 flex-col justify-center px-6 pt-16 pb-10 md:px-10 lg:w-[42vw] lg:py-0 lg:pl-[max(2.5rem,calc((100vw-1400px)/2+2.5rem))]">
           <Reveal kind="fade">
             <Eyebrow>{heal.eyebrow}</Eyebrow>
           </Reveal>
@@ -217,7 +217,7 @@ export function HealGallery() {
 /* ── Healing toolkit (orbit) ── */
 export function Toolkit({ headingAs = "h2" }: { headingAs?: "h1" | "h2" }) {
   return (
-    <section className="relative isolate overflow-clip px-6 py-32 md:px-10 md:py-44">
+    <section className="relative isolate overflow-clip px-6 py-16 md:px-10 md:py-24">
       <Orb className="top-20 -left-60 -z-10 size-[36rem]" color="rose" />
       <div className="mx-auto max-w-[1400px]">
         <div className="grid gap-10 lg:grid-cols-12">
@@ -233,10 +233,10 @@ export function Toolkit({ headingAs = "h2" }: { headingAs?: "h1" | "h2" }) {
             <p className="text-lg leading-relaxed text-taupe">{toolkit.body}</p>
           </Reveal>
         </div>
-        <Reveal kind="scale" duration={1.4} className="mt-20">
+        <Reveal kind="scale" duration={1.4} className="mt-12">
           <ModalityOrbit />
         </Reveal>
-        <Reveal kind="rise" className="mt-16 flex justify-center lg:justify-start">
+        <Reveal kind="rise" className="mt-10 flex justify-center lg:justify-start">
           <Cta href="#cta" tone="outline" size="lg">
             {toolkit.cta}
           </Cta>
@@ -249,7 +249,7 @@ export function Toolkit({ headingAs = "h2" }: { headingAs?: "h1" | "h2" }) {
 /* ── Offerings ── */
 export function Offerings({ headingAs = "h2" }: { headingAs?: "h1" | "h2" }) {
   return (
-    <section className="relative px-4 pt-32 pb-16 md:px-8 md:pt-44">
+    <section className="relative px-4 pt-16 pb-10 md:px-8 md:pt-24">
       <div className="mx-auto mb-10 flex max-w-[1300px] flex-col gap-8 px-2 md:flex-row md:items-end md:justify-between">
         <div>
           <Reveal kind="fade">
@@ -268,7 +268,7 @@ export function Offerings({ headingAs = "h2" }: { headingAs?: "h1" | "h2" }) {
 /* ── Values marquee + founder quote ── */
 export function Values() {
   return (
-    <section className="relative overflow-hidden py-32 md:py-44">
+    <section className="relative overflow-hidden py-16 md:py-24">
       <div className="mx-auto flex max-w-[1400px] flex-col items-center px-6 text-center md:px-10">
         <Reveal kind="fade">
           <Eyebrow>{valuesSection.eyebrow}</Eyebrow>
@@ -278,7 +278,7 @@ export function Values() {
         </SplitHeading>
       </div>
 
-      <div className="mt-20 space-y-4 md:mt-28">
+      <div className="mt-10 space-y-4 md:mt-14">
         <Marquee duration={55}>
           {values.map((v) => (
             <span key={v} className="flex items-center gap-10 pr-10">
@@ -297,7 +297,7 @@ export function Values() {
         </Marquee>
       </div>
 
-      <figure className="mx-auto mt-32 max-w-5xl px-6 md:mt-44 md:px-10">
+      <figure className="mx-auto mt-14 max-w-5xl px-6 md:mt-20 md:px-10">
         <ScrollWords text={valuesSection.quote} className="font-display text-[1.75rem] leading-[1.35] text-ink md:text-[2.6rem]" />
         <Reveal kind="rise">
           <figcaption className="mt-10 flex items-center gap-4">
@@ -317,7 +317,7 @@ export function Journey() {
   const draw = useSpring(scrollYProgress, { stiffness: 70, damping: 22 });
 
   return (
-    <section className="relative isolate overflow-clip bg-paper/70 px-6 py-32 md:px-10 md:py-44">
+    <section className="relative isolate overflow-clip bg-paper/70 px-6 py-16 md:px-10 md:py-24">
       <div className="mx-auto max-w-[1200px]">
         <div className="flex flex-col items-center text-center">
           <Reveal kind="fade">
@@ -328,7 +328,7 @@ export function Journey() {
           </SplitHeading>
         </div>
 
-        <div ref={ref} className="relative mt-24">
+        <div ref={ref} className="relative mt-12">
           {/* Desktop serpentine thread */}
           <svg aria-hidden viewBox="0 0 1200 900" preserveAspectRatio="none" className="absolute inset-0 hidden h-full w-full md:block">
             <path d="M600 0 C 600 120, 260 140, 260 300 S 940 420, 940 600 S 600 760, 600 900" fill="none" stroke="var(--color-ink)" strokeOpacity="0.08" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
@@ -353,7 +353,7 @@ export function Journey() {
             <motion.div className="h-full w-px origin-top bg-gradient-to-b from-plum via-rose to-sand" style={{ scaleY: draw }} />
           </div>
 
-          <ol className="relative grid gap-20 md:min-h-[900px] md:gap-0">
+          <ol className="relative grid gap-20 md:min-h-[700px] md:gap-0">
             {journey.steps.map((s, i) => (
               <li
                 key={s.num}
@@ -370,7 +370,7 @@ export function Journey() {
           </ol>
         </div>
 
-        <Reveal kind="rise" className="mt-24 flex justify-center">
+        <Reveal kind="rise" className="mt-12 flex justify-center">
           <Cta to="/booking" size="lg">
             {journey.cta}
           </Cta>

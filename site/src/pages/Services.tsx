@@ -28,12 +28,12 @@ export default function Services() {
       <Toolkit />
 
       {/* Modality index — every tool in the orbit, as a readable ledger */}
-      <section className="relative isolate overflow-clip bg-dusk px-6 py-28 text-ivory md:px-10 md:py-40">
+      <section className="relative isolate overflow-clip bg-dusk px-6 py-14 text-ivory md:px-10 md:py-24">
         <Cosmos tone="dark" className="-z-10" />
         <Parallax speed={-180} className="absolute -bottom-40 -left-40 -z-10">
           <Sigil className="size-[44rem]" opacity={0.08} />
         </Parallax>
-        <div className="mx-auto max-w-[1400px] space-y-20">
+        <div className="mx-auto max-w-[1400px] space-y-12">
           {order.map((cat) => {
             const items = modalities.filter((m) => m.category === cat);
             return (

@@ -42,7 +42,7 @@ export function Hero() {
   const sigilScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
 
   return (
-    <section ref={ref} className="relative isolate min-h-[100svh] overflow-hidden pt-28 md:pt-32">
+    <section ref={ref} className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28 pb-10 md:pt-32">
       <motion.div style={reduce ? undefined : { x: orbX, y: orbY }} className="absolute -top-32 left-[30%] -z-10">
         <Orb className="relative size-[36rem]" color="rose" />
       </motion.div>
@@ -50,7 +50,7 @@ export function Hero() {
         <Orb className="relative size-[30rem] [animation-delay:3s]" color="plum" />
       </motion.div>
 
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-end gap-12 px-6 md:px-10 lg:grid-cols-12 lg:gap-8">
+      <div className="mx-auto grid w-full max-w-[1400px] grid-cols-1 items-end gap-12 px-6 md:px-10 lg:grid-cols-12 lg:gap-8">
         <motion.div style={reduce ? undefined : { y: titleY, opacity: titleOpacity }} className="relative z-10 lg:col-span-7 lg:pb-16">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.2, delay: 0.3, ease: EASE }}>
             <Eyebrow>{hero.kicker}</Eyebrow>
@@ -94,7 +94,7 @@ export function Hero() {
             initial={{ clipPath: "inset(100% 0% 0% 0% round 999px 999px 0 0)" }}
             animate={{ clipPath: "inset(0% 0% 0% 0% round 999px 999px 0 0)" }}
             transition={{ duration: 1.8, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
-            className="relative mx-auto aspect-[3/4] w-full max-w-[460px]"
+            className="relative mx-auto aspect-[3/4] w-full max-w-[28rem]"
           >
             <motion.div style={reduce ? undefined : { y: archScrollY }} className="arch absolute inset-0 overflow-hidden bg-mist">
               <motion.img

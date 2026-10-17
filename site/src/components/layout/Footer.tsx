@@ -62,7 +62,7 @@ export function Footer() {
       </div>
 
       <motion.div style={{ y, opacity }} aria-hidden className="pointer-events-none select-none px-4 pb-4 md:px-8">
-        <p className="font-display text-[23vw] leading-[0.8] tracking-[-0.04em] whitespace-nowrap text-ivory/[0.07]">
+        <p className="font-display text-[18vw] leading-[0.8] tracking-[-0.04em] whitespace-nowrap text-ivory/[0.07]">
           <em className="text-rose/20">Sovereignty</em>
         </p>
       </motion.div>

@@ -94,7 +94,7 @@ export function ModalityOrbit({ tone = "light" }: { tone?: "light" | "dark" }) {
 
   return (
     <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
-      <div ref={wrap} className="relative mx-auto aspect-square w-full max-w-[620px]">
+      <div ref={wrap} className="relative mx-auto aspect-square w-full max-w-[38rem]">
         {/* Rings */}
         <div aria-hidden className={cn("absolute inset-[8%] rounded-full border", dark ? "border-ivory/10" : "border-ink/10")} />
         <div aria-hidden className={cn("absolute inset-[20%] rounded-full border border-dashed", dark ? "border-rose/20" : "border-sand/50")} />

@@ -203,7 +203,7 @@ export function ModalityOrbit({ tone = "light" }: { tone?: "light" | "dark" }) {
           ) : (
             <motion.div key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }}>
               <p className={cn("font-display text-2xl leading-snug italic md:text-3xl", dark ? "text-ivory/80" : "text-ink/80")}>{toolkit.hint}</p>
-              <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
+              <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-0.5">
                 {modalities.map((m) => (
                   <li key={m.id}>
                     <button
@@ -212,7 +212,7 @@ export function ModalityOrbit({ tone = "light" }: { tone?: "light" | "dark" }) {
                       onFocus={() => setHovered(m.id)}
                       onBlur={() => setHovered(null)}
                       className={cn(
-                        "cursor-pointer text-sm underline decoration-transparent underline-offset-4 transition-colors duration-300 hover:decoration-current",
+                        "cursor-pointer py-1.5 text-sm underline decoration-transparent underline-offset-4 transition-colors duration-300 hover:decoration-current",
                         dark ? "text-ivory/75 hover:text-rose" : "text-taupe hover:text-plum-deep",
                       )}
                     >
@@ -280,7 +280,7 @@ function Node({
           onHover(false);
         }}
         className={cn(
-          "relative grid size-11 -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full border transition-all duration-500 md:size-12",
+          "relative grid size-9 -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full border transition-all duration-500 sm:size-11 md:size-12 before:absolute before:-inset-1.5 before:content-['']",
           active
             ? "scale-125 border-plum bg-plum text-ivory shadow-[0_10px_30px_-8px_rgba(122,74,113,0.7)]"
             : related
@@ -290,7 +290,7 @@ function Node({
                 : "border-ink/10 bg-paper text-plum-deep hover:border-plum hover:bg-plum hover:text-ivory",
         )}
       >
-        <Icon className="size-[18px]" strokeWidth={1.4} />
+        <Icon className="size-4 sm:size-[18px]" strokeWidth={1.4} />
         {related && <span className="absolute inset-0 animate-ping rounded-full ring-1 ring-rose/60 [animation-duration:2.4s]" />}
       </button>
       <AnimatePresence>

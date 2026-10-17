@@ -74,6 +74,10 @@
 
   ::selection { background: var(--color-plum); color: var(--color-ivory); }
 
+  /* Touch: no grey tap flash, no 300ms double-tap delay on controls */
+  html { -webkit-tap-highlight-color: transparent; }
+  a, button, summary, [role="button"], input, label { touch-action: manipulation; }
+
   :focus-visible {
     outline: 1.5px solid var(--color-plum-deep);
     outline-offset: 4px;
@@ -94,7 +98,7 @@
 /* ── Utilities ──────────────────────────────────────────────────────── */
 @utility eyebrow {
   font-family: var(--font-sans);
-  font-size: max(0.6875rem, 10.5px);
+  font-size: max(0.6875rem, 11px);
   font-weight: 500;
   letter-spacing: 0.32em;
   text-transform: uppercase;

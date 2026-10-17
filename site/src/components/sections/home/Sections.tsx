@@ -194,12 +194,12 @@ export function HealGallery() {
               i % 2 === 1 && "lg:bg-blush/40",
             )}
           >
-            <span aria-hidden className="heal-numeral pointer-events-none absolute top-[8vh] right-4 font-display text-[9rem] leading-none text-plum/15 italic transition-colors duration-700 group-hover:text-plum/35 lg:text-[16rem]">
+            <span aria-hidden className="heal-numeral pointer-events-none absolute top-4 right-4 font-display text-[4.5rem] leading-none text-plum/12 italic transition-colors duration-700 group-hover:text-plum/35 md:text-[6rem] lg:top-[8vh] lg:text-[16rem] lg:text-plum/15">
               {h.num.replace(".", "")}
             </span>
             <div className="relative">
               <p className="heal-in eyebrow text-plum-deep">{h.num}</p>
-              <h3 className="heal-in mt-5 max-w-sm font-display text-4xl leading-[1.05] text-ink md:text-5xl">{h.title}</h3>
+              <h3 className="heal-in mt-5 max-w-sm pr-16 font-display text-3xl leading-[1.08] text-ink md:text-4xl lg:pr-0 lg:text-5xl">{h.title}</h3>
               <p className="heal-in mt-6 max-w-sm text-lg leading-relaxed text-taupe">{h.desc}</p>
               <span aria-hidden className="heal-in mt-8 block h-px w-16 bg-plum transition-all duration-700 ease-[var(--ease-alchemy)] group-hover:w-40" />
             </div>
@@ -330,7 +330,7 @@ export function Journey() {
 
         <div ref={ref} className="relative mt-12">
           {/* Desktop serpentine thread */}
-          <svg aria-hidden viewBox="0 0 1200 900" preserveAspectRatio="none" className="absolute inset-0 hidden h-full w-full md:block">
+          <svg aria-hidden viewBox="0 0 1200 900" preserveAspectRatio="none" className="absolute inset-0 hidden h-full w-full lg:block">
             <path d="M600 0 C 600 120, 260 140, 260 300 S 940 420, 940 600 S 600 760, 600 900" fill="none" stroke="var(--color-ink)" strokeOpacity="0.08" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
             <motion.path
               d="M600 0 C 600 120, 260 140, 260 300 S 940 420, 940 600 S 600 760, 600 900"
@@ -349,19 +349,19 @@ export function Journey() {
             </defs>
           </svg>
           {/* Mobile straight thread */}
-          <div aria-hidden className="absolute top-0 bottom-0 left-[1.35rem] w-px bg-ink/10 md:hidden">
+          <div aria-hidden className="absolute top-0 bottom-0 left-[1.35rem] w-px bg-ink/10 lg:hidden">
             <motion.div className="h-full w-px origin-top bg-gradient-to-b from-plum via-rose to-sand" style={{ scaleY: draw }} />
           </div>
 
-          <ol className="relative grid gap-20 md:min-h-[700px] md:gap-0">
+          <ol className="relative grid gap-14 lg:min-h-[700px] lg:gap-0">
             {journey.steps.map((s, i) => (
               <li
                 key={s.num}
                 className={cn(
-                  "relative pl-16 md:absolute md:w-[38%] md:pl-0",
-                  i === 0 && "md:top-[14%] md:left-[62%]",
-                  i === 1 && "md:top-[38%] md:left-0 md:text-right",
-                  i === 2 && "md:top-[62%] md:left-[62%]",
+                  "relative pl-16 lg:absolute lg:w-[38%] lg:pl-0",
+                  i === 0 && "lg:top-[14%] lg:left-[62%]",
+                  i === 1 && "lg:top-[38%] lg:left-0 lg:text-right",
+                  i === 2 && "lg:top-[62%] lg:left-[62%]",
                 )}
               >
                 <Step num={s.num} title={s.title} desc={s.desc} progress={draw} at={[0.22, 0.55, 0.85][i]} align={i === 1 ? "right" : "left"} />
@@ -388,15 +388,15 @@ function Step({ num, title, desc, progress, at, align }: { num: string; title: s
   const opacity = useTransform(lit, [0, 1], [0.35, 1]);
 
   return (
-    <div className={cn("flex flex-col", align === "right" && "md:items-end")}>
+    <div className={cn("flex flex-col", align === "right" && "lg:items-end")}>
       <motion.span
         style={{ backgroundColor: bg, color }}
-        className="absolute top-0 left-0 grid size-11 place-items-center rounded-full border border-plum/30 font-display text-lg md:static md:size-16 md:text-2xl"
+        className="absolute top-0 left-0 grid size-11 place-items-center rounded-full border border-plum/30 font-display text-lg lg:static lg:size-16 lg:text-2xl"
       >
         {num}
       </motion.span>
       <motion.div style={{ y, opacity }}>
-        <h3 className="font-display text-4xl text-ink md:mt-6 md:text-5xl">{title}</h3>
+        <h3 className="font-display text-3xl text-ink md:text-4xl lg:mt-6 lg:text-5xl">{title}</h3>
         <p className="mt-4 max-w-sm text-lg leading-relaxed text-taupe">{desc}</p>
       </motion.div>
     </div>

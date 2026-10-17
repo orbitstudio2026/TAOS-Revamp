@@ -111,7 +111,7 @@ export function Nav() {
             role="dialog"
             aria-modal="true"
             aria-label="Menu"
-            className="fixed inset-0 z-[60] flex flex-col overflow-hidden bg-dusk text-ivory"
+            className="fixed inset-0 z-[72] flex flex-col overflow-hidden bg-dusk text-ivory"
             initial={{ clipPath: "circle(0% at calc(100% - 44px) 44px)" }}
             animate={{ clipPath: "circle(150% at calc(100% - 44px) 44px)" }}
             exit={{ clipPath: "circle(0% at calc(100% - 44px) 44px)" }}

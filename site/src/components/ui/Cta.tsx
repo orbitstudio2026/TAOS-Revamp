@@ -40,9 +40,9 @@ export function Cta({ children, to, href, tone = "solid", size = "md", className
   };
 
   const cls = cn(
-    "group relative inline-flex items-center gap-3 overflow-hidden rounded-full font-sans font-medium uppercase tracking-[0.22em] transition-colors duration-500 cursor-pointer select-none",
+    "group relative inline-flex items-center gap-3 overflow-hidden rounded-full font-sans font-medium uppercase tracking-[0.22em] transition-[color,background-color,scale] duration-500 cursor-pointer select-none active:scale-[0.97]",
     "disabled:pointer-events-none disabled:opacity-50",
-    size === "lg" ? "px-9 py-5 text-[0.72rem]" : "px-7 py-4 text-[0.66rem]",
+    size === "lg" ? "px-8 py-4.5 text-[max(0.72rem,11.5px)] md:px-9 md:py-5" : "px-7 py-4 text-[max(0.66rem,11px)]",
     t.base,
     className,
   );

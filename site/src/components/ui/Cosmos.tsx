@@ -58,7 +58,8 @@ export function Cosmos({ tone = "light", fixed = false, className }: { tone?: To
 
     const p = PALETTE[tone];
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const small = window.innerWidth < 768;
+    const dpr = small ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
     let w = 0;
     let h = 0;
     let stars: Star[] = [];
@@ -180,7 +181,7 @@ export function Cosmos({ tone = "light", fixed = false, className }: { tone?: To
 
     const loop = (now: number) => {
       raf = requestAnimationFrame(loop);
-      if (!visible || document.hidden || now - last < 33) return;
+      if (!visible || document.hidden || now - last < (small ? 42 : 33)) return;
       last = now;
       draw(now);
     };

@@ -106,13 +106,13 @@ export function Newsletter() {
           transition={{ duration: 0.6, ease: EASE }}
           whileHover={{ y: -3 }}
           whileTap={{ scale: 0.96 }}
-          className="group fixed bottom-5 left-5 z-[70] flex cursor-pointer items-center gap-3 rounded-full border border-plum/20 bg-paper/90 py-2 pr-5 pl-2 shadow-[0_14px_40px_-16px_rgba(36,26,35,0.45)] backdrop-blur-md md:bottom-8 md:left-8"
+          className="group fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] left-5 z-[70] flex cursor-pointer items-center gap-3 rounded-full border border-plum/20 bg-paper/90 p-1.5 sm:py-2 sm:pr-5 sm:pl-2 shadow-[0_14px_40px_-16px_rgba(36,26,35,0.45)] backdrop-blur-md md:bottom-8 md:left-8"
         >
           <span className="relative grid size-9 place-items-center rounded-full bg-plum text-ivory transition-colors duration-500 group-hover:bg-plum-deep">
             <LogoMark className="size-5" />
             <span aria-hidden className="absolute inset-0 animate-ping rounded-full ring-1 ring-plum/40 [animation-duration:2.8s]" />
           </span>
-          <span className="eyebrow text-plum-deep">{welcome.submit}</span>
+          <span className="eyebrow hidden text-plum-deep sm:inline">{welcome.submit}</span>
         </motion.button>
       )}
       {open && (
@@ -124,7 +124,7 @@ export function Newsletter() {
           animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0% 0% 0%)" }}
           exit={{ opacity: 0, y: 30 }}
           transition={{ duration: 1, ease: EASE }}
-          className="fixed bottom-4 left-4 z-[70] w-[calc(100vw-2rem)] max-w-[400px] overflow-hidden border border-ink/10 bg-paper p-5 md:p-7 shadow-[0_30px_80px_-30px_rgba(36,26,35,0.45)] md:bottom-8 md:left-8"
+          className="fixed bottom-4 left-4 z-[70] w-[calc(100vw-2rem)] max-h-[calc(100svh-2rem)] max-w-[400px] overflow-y-auto overscroll-contain border border-ink/10 bg-paper p-5 md:p-7 shadow-[0_30px_80px_-30px_rgba(36,26,35,0.45)] md:bottom-8 md:left-8"
         >
           <button type="button" onClick={dismiss} aria-label="Minimise" className="absolute top-3 right-3 grid size-9 cursor-pointer place-items-center rounded-full text-taupe transition-colors hover:bg-mist hover:text-ink">
             <X className="size-4" strokeWidth={1.5} />
@@ -148,7 +148,7 @@ export function Newsletter() {
                     onChange={(e) => setName(e.target.value)}
                     maxLength={100}
                     placeholder={welcome.namePlaceholder}
-                    className="mt-1 w-full border-b border-ink/20 bg-transparent py-2 text-ink outline-none placeholder:text-taupe focus:border-plum"
+                    className="mt-1 w-full border-b border-ink/20 bg-transparent py-2 text-[16px] text-ink outline-none placeholder:text-taupe focus:border-plum"
                   />
                 </label>
                 <label className="block">
@@ -167,7 +167,7 @@ export function Newsletter() {
                     placeholder={welcome.emailPlaceholder}
                     aria-invalid={state === "error"}
                     aria-describedby={state === "error" ? "welcome-error" : undefined}
-                    className="mt-1 w-full border-b border-ink/20 bg-transparent py-2 text-ink outline-none placeholder:text-taupe focus:border-plum aria-[invalid=true]:border-[#a33a3a]"
+                    className="mt-1 w-full border-b border-ink/20 bg-transparent py-2 text-[16px] text-ink outline-none placeholder:text-taupe focus:border-plum aria-[invalid=true]:border-[#a33a3a]"
                   />
                   {state === "error" && (
                     <span id="welcome-error" className="mt-1 block text-xs text-[#a33a3a]">

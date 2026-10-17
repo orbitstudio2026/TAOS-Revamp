@@ -169,7 +169,7 @@ export function MusicToggle() {
         onClick={toggle}
         aria-pressed={playing}
         aria-label={playing ? "Pause background music" : "Play background music"}
-        className="group fixed right-5 bottom-5 z-40 grid size-12 cursor-pointer place-items-center rounded-full border border-ink/10 bg-ivory/80 text-plum-deep shadow-[0_8px_30px_-12px_rgba(60,54,52,0.35)] backdrop-blur-md transition-transform duration-500 hover:scale-105 md:right-8 md:bottom-8"
+        className="group fixed right-5 bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-40 grid size-12 cursor-pointer place-items-center rounded-full border border-ink/10 bg-ivory/80 text-plum-deep shadow-[0_8px_30px_-12px_rgba(60,54,52,0.35)] backdrop-blur-md transition-transform duration-500 hover:scale-105 md:right-8 md:bottom-8"
       >
         <span className="flex h-4 items-end gap-[3px]">
           {[0.9, 0.5, 1, 0.65].map((h, i) => (
@@ -216,7 +216,7 @@ const NOISE =
 /** Film grain overlay. */
 export function Grain({ className }: { className?: string }) {
   return (
-    <div aria-hidden className={cn("pointer-events-none fixed inset-0 z-[55] overflow-hidden", className)}>
+    <div aria-hidden className={cn("pointer-events-none fixed inset-0 z-[55] hidden overflow-hidden md:block", className)}>
       <div className="absolute -inset-1/2 opacity-[0.07] animate-[grain_1.2s_steps(6)_infinite] motion-reduce:animate-none" style={{ backgroundImage: NOISE }} />
     </div>
   );

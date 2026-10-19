@@ -34,7 +34,7 @@ jobs:
           BASE_PATH: /
       # Give every route its own file so Pages answers with 200 (not 404) for /about, /booking, etc.
       - run: |
-          for r in about services offerings faq booking; do
+          for r in about services offerings OfferingsIN faq booking; do
             mkdir -p dist/$r
             cp dist/index.html dist/$r/index.html
           done

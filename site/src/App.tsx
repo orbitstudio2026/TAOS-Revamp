@@ -61,6 +61,8 @@ function Shell() {
           <Route path="/about" element={<Page><About /></Page>} />
           <Route path="/services" element={<Page><Services /></Page>} />
           <Route path="/offerings" element={<Page><Offerings /></Page>} />
+          {/* Old address from the previous site; keep it alive so existing links still land on Offerings */}
+          <Route path="/OfferingsIN" element={<Page><Offerings /></Page>} />
           <Route path="/faq" element={<Page><Faq /></Page>} />
           <Route path="/booking" element={<Page><Booking /></Page>} />
           <Route path="*" element={<Page><NotFound /></Page>} />

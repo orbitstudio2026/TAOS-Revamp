@@ -28,10 +28,17 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
       - run: npm ci
+      # Custom domain: the site is served from the root of thealchemyofsovereignty.com
       - run: npm run build
         env:
-          BASE_PATH: /${{ github.event.repository.name }}/
-      # SPA fallback so deep links like /about and /booking work on Pages
+          BASE_PATH: /
+      # Give every route its own file so Pages answers with 200 (not 404) for /about, /booking, etc.
+      - run: |
+          for r in about services offerings faq booking; do
+            mkdir -p dist/$r
+            cp dist/index.html dist/$r/index.html
+          done
+      # Fallback for unknown URLs (shows the in-app 404 page)
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
